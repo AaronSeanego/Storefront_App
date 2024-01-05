@@ -1,4 +1,6 @@
-import express, { Request, Response } from 'express'
+// import express, {Express,Request,Response } from 'express';
+import express from 'express';
+import { Express,Request,Response } from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import users_func from './handers/users';
