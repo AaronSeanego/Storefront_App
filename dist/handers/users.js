@@ -52,7 +52,7 @@ var getUsers = function (_req, res) { return __awaiter(void 0, void 0, void 0, f
                 try {
                     authorizationHeader = _req.headers.authorization;
                     token = authorizationHeader === null || authorizationHeader === void 0 ? void 0 : authorizationHeader.split(' ')[1];
-                    console.log(token);
+                    // console.log(token);
                     // const token = authorizationHeader.split(' ')[1];
                     jwt.verify(token, process.env.TOKEN_SECRET);
                 }

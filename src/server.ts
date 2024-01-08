@@ -1,6 +1,4 @@
-// import express, {Express,Request,Response } from 'express';
-import express from 'express';
-import { Express,Request,Response } from 'express';
+import express, {Express,Request,Response } from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import users_func from './handers/users';
@@ -38,3 +36,5 @@ dashBoardRoutes(app);
 app.listen(Number(process.env.PORT) || port, function () {
     console.log(`starting app on: ${process.env.POSTGRES_HOST}:${process.env.PORT}`);
 })
+
+export default app;

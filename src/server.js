@@ -15,6 +15,7 @@ const dashboard_1 = __importDefault(require("./handers/dashboard"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const address = "0.0.0.0:3000";
+const port = 3000;
 app.use(cors());
 // const oneDay = 1000 * 60 * 60 * 24;
 // const corsOptions = {
@@ -24,14 +25,12 @@ app.use(cors());
 // app.use(bodyParser.json());
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
-// app.get('/', function (req: Request, res: Response) {
-//     res.send('Hello World!');
-// })
 (0, users_1.default)(app);
 (0, orders_1.default)(app);
 (0, products_1.default)(app);
 (0, orders_products_1.default)(app);
 (0, dashboard_1.default)(app);
-app.listen(3000, function () {
+app.listen(Number(process.env.PORT) || port, function () {
     console.log(`starting app on: ${process.env.POSTGRES_HOST}:${process.env.PORT}`);
 });
+exports.default = app;

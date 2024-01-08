@@ -14,7 +14,7 @@ const getUsers = async (_req, res) => {
         const authorizationHeader = _req.headers.authorization;
         // const token = authorizationHeader?.slice(7,authorizationHeader.length);
         const token = authorizationHeader?.split(' ')[1];
-        console.log(token);
+        // console.log(token);
         // const token = authorizationHeader.split(' ')[1];
         jwt.verify(token, process.env.TOKEN_SECRET);
     }

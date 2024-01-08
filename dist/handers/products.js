@@ -217,7 +217,7 @@ var productsRoutes = function (app) {
     app.get('/products/allProducts', getProducts);
     app.post('/products/productByName', getProduct); ///{"product":"Apple"} is the body
     app.post('/products/addNewProducts', addNewProducts); ///{"product":"Coconut","price":90} is the body
-    app.put('/products/updateProductPrice', updateProductInfo); /// {"productId","2","productPrice": 12}
+    app.put('/products/updateProductPrice', updateProductInfo); /// {"productId":"2","productPrice": 12}
     app.post('/products/deleteProduct', deleteProducts); ////{"productId": "3"}
 };
 exports["default"] = productsRoutes;

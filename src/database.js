@@ -19,9 +19,9 @@ if (process.env.ENV == "dev") {
 if (process.env.ENV == "test") {
     client = new pg_1.Pool({
         host: POSTGRES_HOST,
-        database: POSTGRES_DATABASE,
+        database: POSTGRES_TEST_DATABASE,
         user: POSTGRES_USER,
-        password: POSTGRES_TEST_DATABASE
+        password: POSTGRES_PASSWORD
     });
 }
 exports.default = client;
