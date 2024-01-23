@@ -63,6 +63,7 @@ const userLogin = async (_req, res) => {
     }
 };
 const createNewUser = async (_req, res) => {
+    console.log(_req.body);
     try {
         const newUsers_Info = await users.createUser(_req.body.username, _req.body.password, _req.body.email, _req.body.firstname, _req.body.lastname);
         console.log(newUsers_Info);

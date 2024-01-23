@@ -30,6 +30,9 @@ app.use(body_parser_1.default.urlencoded({ extended: true }));
 (0, products_1.default)(app);
 (0, orders_products_1.default)(app);
 (0, dashboard_1.default)(app);
+process.on('uncaughtException', function (err) {
+    console.log(err);
+});
 app.listen(Number(process.env.PORT) || port, function () {
     console.log(`starting app on: ${process.env.POSTGRES_HOST}:${process.env.PORT}`);
 });

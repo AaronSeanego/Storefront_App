@@ -6,7 +6,7 @@ import client from "../database";
 dotenv.config();
 const router = express.Router();
 
-let ordersProductsList:String;
+let ordersProductsList:any;
 export class OrderProductsModels {
 
     async getOrderedProducts(orderId:string): Promise<any> {

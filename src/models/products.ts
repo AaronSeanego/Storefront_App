@@ -44,7 +44,7 @@ export class ProductsModels {
     }
 
 
-    async getProductByName(product_name: String): Promise<any> {
+    async getProductByName(product_name: string): Promise<any> {
         // @ts-ignore
         userDataObj = {};
         try {
@@ -71,7 +71,7 @@ export class ProductsModels {
     }
 
 
-    async addNewProducts(productName:String,productPrice:Number): Promise<any> {
+    async addNewProducts(productName:string,productPrice:number): Promise<any> {
         //@ts-ignore
         updateResponse = {};
         try {
@@ -121,7 +121,7 @@ export class ProductsModels {
         }
     }
 
-    async deleteProduct(productId: String): Promise<any> {
+    async deleteProduct(productId: string): Promise<any> {
         try {
             await client.connect();
             const deletedProduct = await client.query("DELETE FROM products WHERE id ='" + productId + "'");

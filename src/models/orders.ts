@@ -6,8 +6,8 @@ import client from "../database";
 dotenv.config();
 const router = express.Router();
 
-let orderObj:String;
-let orderInfo:String;
+let orderObj:any;
+let orderInfo:any;
 
 export class OrderModels {
     async getAllOrders(): Promise<any> {
@@ -31,7 +31,7 @@ export class OrderModels {
         }
     }
 
-    async getOrderById(id: String): Promise<any> {
+    async getOrderById(id: string): Promise<any> {
         try {
             await client.connect();
             const order = await client.query("SELECT * FROM orders WHERE users_id = '" + id + "'");
@@ -52,7 +52,7 @@ export class OrderModels {
         }
     }
 
-    async newOrder(user_id:Number): Promise<any> {
+    async newOrder(user_id:number): Promise<any> {
         let orderStatus = "Active";
         try {
             await client.connect();
@@ -93,7 +93,7 @@ export class OrderModels {
         }
     }
 
-    async deleteOrder(id: String): Promise<any> {
+    async deleteOrder(id: string): Promise<any> {
         try {
             await client.connect();
             const deletedOrder = await client.query("DELETE FROM orders WHERE id = '" + id + "'");

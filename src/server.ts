@@ -1,4 +1,4 @@
-import express, {Express,Request,Response } from 'express';
+import express, {Request,Response } from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import users_func from './handers/users';
@@ -32,6 +32,10 @@ orderRoutes(app);
 productsRoutes(app);
 ordersProductsRoutes(app);
 dashBoardRoutes(app);
+
+process.on('uncaughtException', function (err) {
+    console.log(err);
+});
 
 app.listen(Number(process.env.PORT) || port, function () {
     console.log(`starting app on: ${process.env.POSTGRES_HOST}:${process.env.PORT}`);

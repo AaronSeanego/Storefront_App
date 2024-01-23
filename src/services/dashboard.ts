@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 
 dotenv.config();
 
-let joinedData:string;
-let products:string;
+let joinedData:any;
+let products:any;
 
 export class DashBoardModels {
     async getJoined() : Promise<any> {

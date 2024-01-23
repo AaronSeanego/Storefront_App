@@ -117,19 +117,22 @@ var createNewUser = function (_req, res) { return __awaiter(void 0, void 0, void
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, users.createUser(_req.body.username, _req.body.password, _req.body.email, _req.body.firstname, _req.body.lastname)];
+                console.log(_req.body);
+                _a.label = 1;
             case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, users.createUser(_req.body.username, _req.body.password, _req.body.email, _req.body.firstname, _req.body.lastname)];
+            case 2:
                 newUsers_Info = _a.sent();
                 console.log(newUsers_Info);
                 token = jwt.sign({ user: newUsers_Info }, process.env.TOKEN_SECRET);
                 res.status(200).json({ "status": "200", "data": newUsers_Info, "token": token });
                 database_1["default"].release();
-                return [3 /*break*/, 3];
-            case 2:
+                return [3 /*break*/, 4];
+            case 3:
                 err_3 = _a.sent();
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

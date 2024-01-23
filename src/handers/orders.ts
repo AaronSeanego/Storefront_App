@@ -24,7 +24,7 @@ const getOrders = async (_req:Request, res:Response) => {
         const orders = await orderModels.getAllOrders();
         console.log(orders);
         res.status(200).json(orders);
-        client.release()
+        client.release();
     } catch (err) {
         console.log(err);
     }

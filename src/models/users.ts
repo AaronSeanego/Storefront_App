@@ -50,7 +50,7 @@ export class UserModels {
         }
     }
 
-    async userLogin(username:String,password:String): Promise<any> {
+    async userLogin(username:string,password:string): Promise<any> {
         try {
             await client.connect();
             userInfo = await client.query("SELECT password FROM users WHERE username = '" + username + "'");
@@ -65,7 +65,7 @@ export class UserModels {
 
                 if(userInfo.rows.length) {
                     const user = userInfo.rows[0];
-                    bcrypt.compare(password + "pepper", user.password, (err:String, result:String) => {
+                    bcrypt.compare(password + "pepper", user.password, (err:string, result:string) => {
                         if (err) {
 
                         }
@@ -102,7 +102,7 @@ export class UserModels {
         }
     }
 
-    async createUser(username:string, password:string, email:string,firstname:string,lastname:string): Promise<any> {
+    async createUser(username: string, password: string, email: string,firstname: string,lastname: string): Promise<any> {
         try {
             await client.connect();
             let hashedPassword = await bcrypt.hash(password + "pepper", 10);
@@ -149,7 +149,7 @@ export class UserModels {
         }
     }
 
-    async deleteUser(username: String): Promise<any> {
+    async deleteUser(username: string): Promise<any> {
         try {
             await client.connect();
             const deletedUser = await client.query("DELETE FROM users WHERE username ='" + username + "'");
