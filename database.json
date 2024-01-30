@@ -7,7 +7,7 @@
         "database" : "storefront_app_db",
         "multipleStatements" : true
     },"sql-file" : true,
-    
+
     "test" : {
         "driver" : "pg",
         "user" : "Lapi",

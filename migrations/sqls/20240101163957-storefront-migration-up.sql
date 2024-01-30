@@ -1,7 +1,5 @@
 /* Replace with your SQL commands */
 
-CREATE DATABASE IF NOT EXISTS storefront_app_test_db;
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255),

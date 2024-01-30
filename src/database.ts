@@ -13,47 +13,29 @@ const {
     ENV,
   } = process.env;
 
-let serverData:any = {};
+let client:any;
+// let serverData:any = {};
 
 
 if(ENV == "dev") {
     console.log(ENV);
     console.log(POSTGRES_DATABASE);
-    // client = new Pool({
-    //     host: POSTGRES_HOST,
-    //     database: POSTGRES_DATABASE,
-    //     user: POSTGRES_USER,
-    //     password: POSTGRES_PASSWORD
-    // });
-
-    serverData = {
+    client = new Pool({
         host: POSTGRES_HOST,
         database: POSTGRES_DATABASE,
         user: POSTGRES_USER,
         password: POSTGRES_PASSWORD
-    };
+    });
 }else if(ENV == "test") {
     console.log(ENV);
     console.log(POSTGRES_TEST_DATABASE);
-   
-    // client = new Pool({
-    //     host: POSTGRES_HOST,
-    //     database: POSTGRES_TEST_DATABASE,
-    //     user: POSTGRES_USER,
-    //     password: POSTGRES_PASSWORD
-    // });
-
-    serverData = {
+    client = new Pool({
         host: POSTGRES_HOST,
         database: POSTGRES_TEST_DATABASE,
         user: POSTGRES_USER,
         password: POSTGRES_PASSWORD
-    };
+    });
     
 }
-
-let client: Pool = new Pool(serverData);
-
-
 
 export default client;
