@@ -24,7 +24,7 @@ const getProducts = async (_req:Request, res:Response) => {
         const allProducts = await productsModels.getAllProducts();
         console.log(allProducts);
         res.status(200).json({"status": "200", "data": allProducts});
-        client.release();
+        // client.release();
     } catch (err) {
         // res.status(400);
         // res.json(err);
@@ -49,7 +49,7 @@ const getProduct = async (_req: Request, res: Response) => {
         const usersData = await productsModels.getProductByName(_req.body.product);
         console.log(usersData.user);
         res.status(200).json({"status": "200", "data": usersData});
-        client.release();
+        // client.release();
     } catch (err) {
         // console.error(err);
         // res.status(400);
@@ -75,7 +75,7 @@ const addNewProducts = async (_req: Request, res: Response) => {
         const newItem = await productsModels.addNewProducts(_req.body.product, _req.body.price);
         // res.send(newItem);
         res.status(200).json({"status code": 200, newItem});
-        client.release();
+        // client.release();
     }catch (err) {
         // res.status(400);
         // res.json(err);
@@ -101,7 +101,7 @@ const updateProductInfo = async (_req:Request, res:Response) => {
     try {
         const updatedData = await productsModels.updateProductInfo(_req.body.productId,_req.body.productPrice);
         res.status(200).json(updatedData);
-        client.release();
+        // client.release();
     } catch (err) {
 
     }
@@ -125,7 +125,7 @@ const deleteProducts = async (_req: Request, res: Response) => {
         const newItem = await productsModels.deleteProduct(_req.body.productId);
         // res.send(newItem);
         res.status(200).json({"status code": 200, newItem});
-        client.release();
+        // client.release();
     }catch (err) {
         // res.status(400);
         // res.json(err);

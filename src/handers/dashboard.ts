@@ -25,7 +25,7 @@ const getJoinedData = async (_req:Request, res:Response) => {
         const joindedInfo = await dashboardMethod.getJoined();
         console.log(joindedInfo);
         res.status(200).json(joindedInfo);
-        client.release();
+        // client.release();
     } catch (err) {
 
     }
@@ -50,7 +50,7 @@ const getProductPrice = async (_req:Request, res:Response) => {
     try {
         const products = await dashboardMethod.getProductByLike(_req.params.nameString);
         res.status(200).json(products);
-        client.release();
+        // client.release();
     } catch (err) {
 
     }
@@ -74,7 +74,7 @@ const getProductPriceRange = async (_req:Request, res:Response) => {
     try {
         const products = await dashboardMethod.getProductByLike(_req.params.nameString);
         res.status(200).json(products);
-        client.release();
+        // client.release();
     } catch (err) {
 
     }

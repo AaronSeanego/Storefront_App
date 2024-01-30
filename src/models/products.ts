@@ -117,7 +117,6 @@ export class ProductsModels {
                 }
             }
         } catch (err) {
-
         }
     }
 

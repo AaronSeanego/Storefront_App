@@ -25,7 +25,7 @@ const getOrderProducts = async (_req:Request, res:Response) => {
         const orders_products = await ordersProducts.getOrderedProducts(_req.params.id);
         console.log(orders_products);
         res.status(200).json(orders_products);
-        client.release();
+        // client.release();
     } catch (err) {
         // console.log(err);
     }
@@ -49,7 +49,7 @@ const createOrdersProducts = async (_req:Request, res:Response) => {
         const ordersProdcts = await ordersProducts.createOrderProducts(_req.body.quantity,_req.body.ordersId,_req.body.productId);
         console.log(ordersProdcts);
         res.status(200).json(ordersProdcts);
-        client.release();
+        // client.release();
     } catch (err) {
         // console.log(err);
     }
@@ -74,7 +74,7 @@ const updateOrdersInfo = async (_req:Request, res:Response) => {
     try {
         const updatedData = await ordersProducts.updateOrdersInfo(_req.body.quantity,_req.body.orderId,_req.body.product_id);
         res.status(200).json(updatedData);
-        client.release();
+        // client.release();
     } catch (err) {
 
     }

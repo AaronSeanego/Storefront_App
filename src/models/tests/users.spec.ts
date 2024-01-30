@@ -319,11 +319,11 @@ describe('Testing Users Endpoints', () => {
                 method: 'POST',
                 uri: 'http://127.0.0.1:3000/users/register',
                 body: {
-                    "username":"Delta",
-                    "password":"delta@12345",
-                    "email": "delta.echo@gmail.com",
-                    "firstname": "Delta",
-                    "lastname": "Echo",
+                    "username":"Echo",
+                    "password":"echo@12345",
+                    "email": "echo.foxtrot@gmail.com",
+                    "firstname": "Echo",
+                    "lastname": "Foxtrot"
                 },
                 json: true
             };

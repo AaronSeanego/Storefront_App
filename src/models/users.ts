@@ -11,7 +11,7 @@ let deletedUserObj = {};
 
 let userInfo;
 let signedUser:String;
-let passwordCorrect:Boolean;
+let passwordCorrect:string = '';
 let usersInfo:String;
 
 // export type Users {
@@ -55,6 +55,7 @@ export class UserModels {
             await client.connect();
             userInfo = await client.query("SELECT password FROM users WHERE username = '" + username + "'");
             // console.log(userInfo.rows);
+            const user = userInfo.rows[0];
             
             if(userInfo.rowCount == 0) {
                 return {
@@ -63,22 +64,33 @@ export class UserModels {
                 };
             }else if(userInfo.rowCount > 0) {
 
-                if(userInfo.rows.length) {
-                    const user = userInfo.rows[0];
-                    bcrypt.compare(password + "pepper", user.password, (err:string, result:string) => {
-                        if (err) {
+                // if(userInfo.rows.length) {
+                //     const user = userInfo.rows[0];
+                //     bcrypt.compare(password + "pepper", user.password, (err:string, result:string) => {
+                //         if (err) {
 
-                        }
-                        if(result) {
-                            passwordCorrect = true;
-                        }else {
-                            passwordCorrect = false;
-                        }
-                    });
+                //         }
+                //         if(result) {
+                //             passwordCorrect = true;
+                //         }else {
+                //             passwordCorrect = false;
+                //         }
+                //     });
 
-                }
+                // }
 
-                if(passwordCorrect == true) {
+                bcrypt.compare(password + "pepper", user.password, (err:string, result:string) => {
+                    if (err) {
+
+                    }
+                    if(result) {
+                        passwordCorrect = 'true';
+                    }else {
+                        passwordCorrect = 'false';
+                    }
+                });
+
+                if(passwordCorrect == 'true') {
                     return {
                         "user": username,
                         "status": "Login Successfful",
@@ -145,7 +157,9 @@ export class UserModels {
                 }
             }
         } catch (err) {
-
+            console.log(err);
+        } finally {
+            // client.end();
         }
     }
 
@@ -167,6 +181,7 @@ export class UserModels {
                     "message": "Record successfully deleted from the database"
                 }
             }
+
         } catch (err) {
             console.error(err);
             throw err;
