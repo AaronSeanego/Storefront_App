@@ -195,7 +195,9 @@ describe('Testing Users Endpoints', () => {
             };
 
             request(options).then((response:any) => {
-                expect(response.status).toBeDefined();
+                expect(response.status).toBe('200');
+                expect(response.method).toBe('POST');
+                expect(response.body).toBe('');
                 expect(response).not.toEqual({});
                 console.log(response.token);
                 // token = response;
@@ -220,7 +222,9 @@ describe('Testing Users Endpoints', () => {
             };
 
             request(options).then((response:any) => {
-                expect(response.status).toBeDefined();
+                expect(response.status).toBe('200');
+                expect(response.method).toBe('POST');
+                expect(response.body).toBe('');
                 expect(response).not.toEqual({});
             }).catch((err:any) => {
                 console.error(err);
@@ -243,7 +247,9 @@ describe('Testing Users Endpoints', () => {
             };
 
             request(options).then((response:any) => {
-                expect(response.status).toBeDefined();
+                expect(response.status).toBe('200');
+                expect(response.method).toBe('POST');
+                expect(response.body).toBe('');
                 expect(response).not.toEqual({});
             }).catch((err:any) => {
                 console.error(err);
@@ -266,7 +272,9 @@ describe('Testing Users Endpoints', () => {
             };
 
             request(options).then((response:any) => {
-                expect(response.status).toBeDefined();
+                expect(response.status).toBe('200');
+                expect(response.method).toBe('POST');
+                expect(response.body).toBe('');
                 expect(response).not.toEqual({});
             }).catch((err:any) => {
                 console.error(err);
@@ -289,7 +297,9 @@ describe('Testing Users Endpoints', () => {
             };
 
             request(options).then((response:any) => {
-                expect(response.status).toBeDefined();
+                expect(response.status).toBe('200');
+                expect(response.method).toBe('POST');
+                expect(response.body).toBe('');
                 expect(response).not.toEqual({});
             }).catch((err:any) => {
                 console.error(err);
@@ -310,7 +320,9 @@ describe('Testing Users Endpoints', () => {
                 json: true
             };
         request(options).then((response:any) => {
-            expect(response.status).toBeDefined();
+            expect(response.status).toBe('200');
+            expect(response.method).toBe('GET');
+            expect(response.body).toBe('');
             expect(response).not.toEqual({});
             console.log(response);
         }).catch((err:any) => {
@@ -337,7 +349,9 @@ describe('Testing Users Endpoints', () => {
             };
         
             request(options).then((response:any) => {
-                expect(response.status).toBeDefined();
+                expect(response.status).toBe('200');
+                expect(response.method).toBe('POST');
+                expect(response.body).toBe('');
                 expect(response).not.toEqual({});
                 console.log(response);
             }).catch((err:any) => {
@@ -362,7 +376,9 @@ describe('Testing Users Endpoints', () => {
             };
 
             request(options).then((response:any) => {
-                expect(response.status).toBeDefined();
+                expect(response.status).toBe('200');
+                expect(response.method).toBe('PUT');
+                expect(response.body).toBe('');
                 expect(response).not.toEqual({});
                 console.log(response);
             }).catch((err:any) => {
@@ -387,7 +403,9 @@ describe('Testing Users Endpoints', () => {
             };
 
             request(options).then((response:any) => {
-                expect(response.status).toBeDefined();
+                expect(response.status).toBe('200');
+                expect(response.method).toBe('POST');
+                expect(response.body).toBe('');
                 expect(response).not.toEqual({});
                 console.log(response);
             }).catch((err:any) => {
@@ -415,7 +433,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                     console.log(response);
                 }).catch((err:any) => {
@@ -441,7 +461,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                     console.log(response);
                 }).catch((err:any) => {
@@ -467,7 +489,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                     console.log(response);
                 }).catch((err:any) => {
@@ -493,7 +517,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                     console.log(response);
                 }).catch((err:any) => {
@@ -519,7 +545,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                     console.log(response);
                 }).catch((err:any) => {
@@ -542,7 +570,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('GET');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -566,7 +596,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -591,7 +623,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('PUT');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -615,7 +649,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -640,7 +676,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('GET');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -664,7 +702,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -686,7 +726,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -708,7 +750,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -730,7 +774,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -752,7 +798,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -776,7 +824,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -803,7 +853,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('PUT');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -827,7 +879,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('POST');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -852,7 +906,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('GET');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -874,7 +930,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('GET');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
@@ -895,7 +953,9 @@ describe('Testing Users Endpoints', () => {
                 };
     
                 request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
+                    expect(response.status).toBe('200');
+                    expect(response.method).toBe('GET');
+                    expect(response.body).toBe('');
                     expect(response).not.toEqual({});
                 }).catch((err:any) => {
                     console.error(err);
