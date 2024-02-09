@@ -17,9 +17,10 @@ let deletedUserObj:String;
 // }
 
 export class ProductsModels {
+    
     async getAllProducts(): Promise<any> {
         // @ts-ignore
-        userDataObj = {};
+        // userDataObj = {};
         try {
             await client.connect();
             const resData = await client.query('SELECT * FROM products');
@@ -38,15 +39,14 @@ export class ProductsModels {
             
         } catch (err) {
             console.error(err);
-        } finally {
-            // client.release();
+            return {"error": err}
         }
     }
 
 
     async getProductByName(product_name: string): Promise<any> {
         // @ts-ignore
-        userDataObj = {};
+        // userDataObj = {};
         try {
             await client.connect();
             const res = await client.query("SELECT * FROM products WHERE name ='" + product_name + "'");
@@ -65,21 +65,19 @@ export class ProductsModels {
             // return userDataObj;
         } catch (err) {
             console.error(err);
-        } finally {
-            // client.release();
+            return {"error": err}
         }
     }
 
 
-    async addNewProducts(productName:string,productPrice:number): Promise<any> {
+    async addNewProducts(productName:string, productPrice:number): Promise<any> {
+        console.log(productName, productPrice);
         //@ts-ignore
-        updateResponse = {};
+        // updateResponse = {};
         try {
             await client.connect();
-            const newItems = await client.query("INSERT INTO products (name,price) VALUES ('" + productName + "','" + productPrice + "')");
-            // const newItems = await client.query("INSERT INTO store_items (item_name,item_description) VALUES (" + item_Name + "," + item_Description + ")");
+            const newItems = await client.query("INSERT INTO products (name, price) VALUES ('" + productName + "','" + productPrice + "')");
             updateResponse = newItems.rows;
-            console.log(updateResponse);
             if(newItems.rowCount == 0) {
                 return {
                     "status": "Failure",
@@ -95,8 +93,7 @@ export class ProductsModels {
     
         } catch (err) {
             console.error(err);
-        } finally {
-            // client.release();
+            return {"error": err}
         }
     }
 
@@ -124,9 +121,6 @@ export class ProductsModels {
         try {
             await client.connect();
             const deletedProduct = await client.query("DELETE FROM products WHERE id ='" + productId + "'");
-            // deletedUserObj = deletedProduct;
-            // console.log(deletedUserObj);
-
             if(deletedProduct.rowCount == 0) {
                 return {
                     "status": "Failure",
@@ -140,10 +134,7 @@ export class ProductsModels {
             }
         } catch (err) {
             console.error(err);
-            throw err;
-        } finally {
-            // client.end();
-            // await client.release();
+            return {error: err}
         }
 
     }

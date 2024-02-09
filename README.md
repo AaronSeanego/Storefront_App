@@ -56,6 +56,27 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 
 #### Create Database ####
+- CREATE USER {user} WITTH PASSWORD {password};
 
 - CREATE DATABASE storefront_app_db;
 - CREATE DATABASE storefront_app_test_db;
+
+- GRANT ALL PRIVILEGES ON DATABASE {database} TO {user};
+
+e.g.
+- CREATE USER Lapi WITH PASSWORD 'password';
+- CREATE DATABASE storefront_app_db;
+- CREATE DATABASE storefront_app_test_db;
+- GRANT ALL PRIVILEGES ON DATABASE storefront_app_db TO Lapi;
+- GRANT ALL PRIVILEGES ON DATABASE storefront_app_test_db TO Lapi;
+
+#### Run The Application ####
+
+--npm run start -- run the application
+--npm run watch -- run the application (for devs)
+--npm run test -- unit test the application
+
+host: http://localhost
+port: 3000
+
+### Run The Application ####

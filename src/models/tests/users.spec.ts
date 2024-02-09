@@ -19,7 +19,7 @@ const port:number = 8080;
 let portString: string = '8080';
 
 /*"test": "SET ENV=test && npx tsc && db-migrate up && db-migrate --env test up && jasmine-ts && db-migrate db:drop storefront_app_test_db",*/
- const token:string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InN0YXR1cyI6IlN1Y2Nlc3NmdWwiLCJtZXNzYWdlIjoiUmVjb3JkIHN1Y2Nlc3NmdWxseSBjcmVhdGVkIn0sImlhdCI6MTcwNDcxMzE1NX0.Q0BhTRhvF1DPN-NT04W1VOrGk7CpQVqhkrJ5P-x_TNA";
+ let token:string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InN0YXR1cyI6IlN1Y2Nlc3NmdWwiLCJtZXNzYWdlIjoiUmVjb3JkIHN1Y2Nlc3NmdWxseSBjcmVhdGVkIn0sImlhdCI6MTcwNzM3NzM3OH0.Zkt8wmIwxd15dFK3sQnnR8VhhnSBTdMxVWsiD5wQm4Q";
 
  const {
     POSTGRES_HOST,
@@ -30,258 +30,129 @@ let portString: string = '8080';
     ENV,
   } = process.env;
   
-describe('Testing Models', () => {
+// describe('Testing Models', () => {
+//         ///////////////////////////////////////////////////////////////////////////////////////////
+//         /////////////////////////////// The code between the forward slashes and the asterisk is resonsible for manupilating the users table/////////////
+//         //////////////////////////////////////////////////////////////////////////////////////////
 
-    describe('User Models', () => {
-        it('getUsers function should exist', async () => {
-            const usersInfo = await users.getUsers();
-            expect(users.getUsers).toBeDefined();
-            expect(usersInfo).not.toEqual({});
-            console.log(usersInfo);
-            // expect(usersInfo.length).toBeTruthy;
-        })
+
+//         describe('The Code Is For Manupilating The Data In The User Table', () => {
+//             it('createUser function should return a json object containing user info and token', async () => {
+//                 const usersInfo = await users.createUser('Alpha','alpha@12345','alpha.beta@gmail.com','Alpha','Beta');
+//                 expect(users.createUser).toBeDefined();
+//                 expect(usersInfo).not.toEqual({});
+//             });
+
+//             ///////////////////////////////////////////////////////////////////////////
+//             //////////////////////////////////////////////////////////////////////////
+//             //////////////////////////////////////////////////////////////////////////
+
+                
+//             it('getUsers function should exist', async () => {
+//                 const usersInfo = await users.getUsers();
+//                 expect(users.getUsers).toBeDefined();
+//                 expect(usersInfo).not.toEqual({});
+//                 console.log(usersInfo);
+//                 // expect(usersInfo.length).toBeTruthy;
+//             })
+
+//             ///////////////////////////////////////////////////////////////////////////
+//             //////////////////////////////////////////////////////////////////////////
+//             //////////////////////////////////////////////////////////////////////////
+
+//             it('userLogin function should return a message object with message that says user logged in', async () => {
+//                 const usersInfo = await users.userLogin('Alpha','alpha@12345');
+//                 expect(users.userLogin).toBeDefined();
+//                 expect(usersInfo).not.toEqual({});
+//                 // console.log(usersInfo);
+//             });
+    
+//             ////////////////////////////////////////////////////////////////////////////////
+//             ////////////////////////////////////////////////////////////////////////////////
+    
+//             it('updateUser function should return a json object containing user info and token', async () => {
+//                 const usersInfo = await users.updateUserInfo('Alpha','beta@example.com');
+//                 expect(users.updateUserInfo).toBeDefined();
+//                 expect(usersInfo).not.toEqual({});
+//                 console.log(usersInfo);
+//             });
+    
+//             ////////////////////////////////////////////////////////////////////////////////
+//             ////////////////////////////////////////////////////////////////////////////////
+    
+//             it('deleteUser function should return a json object containing delete message', async () => {
+//                 const usersInfo = await users.deleteUser('Alpha');
+//                 expect(users.deleteUser).toBeDefined();
+//                 expect(usersInfo).not.toEqual({});
+//                 console.log(usersInfo);
+//             });
+//         });
+
+//         describe('This Tests Creates Records In The Products Table', () => {
+
+//              it('addNewProducts function must return a message that says product was created', async () => {
+//                 const productsInfo = await products.addNewProducts("Apple", 40);
+//                 expect(products.addNewProducts).toBeDefined();
+//                 expect(productsInfo).not.toEqual({});
+//                 console.log(productsInfo);
+//                 // expect(productsInfo.length).toBeTruthy;
+//             });
+
+//             //////////////////////////////////////////////////////////////////////////////
+//             //////////////////////////////////////////////////////////////////////////////
+//             //////////////////////////////////////////////////////////////////////////////
+    
+            
+//             it('getAllProducts function should return a list of all products', async () => {
+//                 const productsInfo = await products.getAllProducts();
+//                 expect(products.getAllProducts).toBeDefined();
+//                 expect(productsInfo).not.toEqual({});
+//                 console.log(productsInfo);
+//                 // expect(productsInfo.length).toBeTruthy;
+
+//             });
         
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
+//             // //////////////////////////////////////////////////////////////////////////////
+//             // //////////////////////////////////////////////////////////////////////////////
+//             // //////////////////////////////////////////////////////////////////////////////
     
-        it('createUser function should return a json object containing user info and token', async () => {
-            const usersInfo = await users.createUser('Alpha','alpha@1234','alpha@gmail.com','Alpha','Alpha');
-            expect(users.createUser).toBeDefined();
-            expect(usersInfo).toEqual({
-                "status": "Successful",
-                "message": "Record successfully created"
-            });
+    
+//             it('getProductByName function should one product as a json object', async () => {
+//                 const productsInfo = await products.getProductByName('Apple');
+//                 expect(products.getProductByName).toBeDefined();
+//                 expect(productsInfo).not.toEqual({});
+//                 console.log(productsInfo);
+//                 // expect(productsInfo.length).toBeTruthy;
+//             })
 
-            console.log(usersInfo);
-        });
+//             //////////////////////////////////////////////////////////////////////////////
+//             //////////////////////////////////////////////////////////////////////////////
+//             //////////////////////////////////////////////////////////////////////////////
+    
+//             it('updateProductInfo function must return a message that says record was updated', async () => {
+//                 const productsInfo = await products.updateProductInfo('1',500);
+//                 expect(products.updateProductInfo).toBeDefined();
+//                 expect(productsInfo).not.toEqual({});
+//                 console.log(productsInfo);
+//                 // expect(productsInfo.length).toBeTruthy;
+//             });
+    
+//             // //////////////////////////////////////////////////////////////////////////////
+//             // //////////////////////////////////////////////////////////////////////////////
+//             // //////////////////////////////////////////////////////////////////////////////
+    
+//             it('deleteProduct function must return a message that says record was deleted', async () => {
+//                 const productsInfo = await products.deleteProduct('5');
+//                 expect(products.deleteProduct).toBeDefined();
+//                 expect(productsInfo).not.toEqual({});
+//                 console.log(productsInfo);
+//                 // expect(productsInfo.length).toBeTruthy;
+//             });
 
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('userLogin function should return a message object with message that says user logged in', async () => {
-            const usersInfo = await users.userLogin('Alpha','alpha@1234');
-            expect(users.userLogin).toBeDefined();
-            expect(usersInfo).not.toEqual({});
-            console.log(usersInfo);
-        });
-    
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('updateUser function should return a json object containing user info and token', async () => {
-            const usersInfo = await users.updateUserInfo('Beta','beta.foxtrot@gmail.com');
-            expect(users.updateUserInfo).toBeDefined();
-            expect(usersInfo).not.toEqual({});
-            console.log(usersInfo);
-        });
-    
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('deleteUser function should return a json object containing delete message', async () => {
-            const usersInfo = await users.deleteUser('adfsaf');
-            expect(users.deleteUser).toBeDefined();
-            expect(usersInfo).not.toEqual({});
-            console.log(usersInfo);
-        });
-    });
+//         });
 
+// })
 
-    describe('Products Model', () => {
-
-        it('getAllProducts function should return a list of all products', async () => {
-            const productsInfo = await products.getAllProducts();
-            expect(products.getAllProducts).toBeDefined();
-            expect(productsInfo).not.toEqual({});
-            console.log(productsInfo);
-            // expect(productsInfo.length).toBeTruthy;
-
-        })
-        
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('addNewProducts function must return a message that says product was created', async () => {
-            const productsInfo = await products.addNewProducts('Apple',40);
-            expect(products.addNewProducts).toBeDefined();
-            expect(productsInfo).not.toEqual({});
-            console.log(productsInfo);
-            // expect(productsInfo.length).toBeTruthy;
-        })
-
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('getProductByName function should one product as a json object', async () => {
-            const productsInfo = await products.getProductByName('Apple');
-            expect(products.getProductByName).toBeDefined();
-            expect(productsInfo).not.toEqual({});
-            console.log(productsInfo);
-            // expect(productsInfo.length).toBeTruthy;
-        })
-
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('updateProductInfo function must return a message that says record was updated', async () => {
-            const productsInfo = await products.updateProductInfo('3',500);
-            expect(products.updateProductInfo).toBeDefined();
-            expect(productsInfo).not.toEqual({});
-            console.log(productsInfo);
-            // expect(productsInfo.length).toBeTruthy;
-        })
-    
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('deleteProduct function must return a message that says record was deleted', async () => {
-            const productsInfo = await products.deleteProduct('100');
-            expect(products.deleteProduct).toBeDefined();
-            expect(productsInfo).not.toEqual({});
-            console.log(productsInfo);
-            // expect(productsInfo.length).toBeTruthy;
-        })
-        
-    });
-
-
-
-
-    describe("Orders Models", () => {
-
-        it('getAllOrders function should return a json list of all orders', async () => {
-            const ordersInfo = await orders.getAllOrders();
-            expect(orders.getAllOrders).toBeDefined();
-            expect(ordersInfo).not.toEqual({});
-            console.log(ordersInfo);
-        })
-
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('getNewOrder function should return a json message that show that a new order was created successfully', async () => {
-            const ordersInfo = await orders.newOrder(24);
-            expect(orders.newOrder).toBeDefined();
-            expect(ordersInfo).not.toEqual({});
-            console.log(ordersInfo);
-        })
-    
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('getOrderById function should return a json object a one order information', async () => {
-            const ordersInfo = await orders.getOrderById('1');
-            expect(orders.getOrderById).toBeDefined();
-            expect(ordersInfo).not.toEqual({});
-            console.log(ordersInfo);
-        })
-    
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('updateOrder function should return a json message that the record was updated', async () => {
-            const ordersInfo = await orders.updateOrderInfo('3','Complete');
-            expect(orders.updateOrderInfo).toBeDefined();
-            expect(ordersInfo).not.toEqual({});
-            console.log(ordersInfo);
-        })
-    
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('deleteOrder function should return a json message that the record was deleted successfully', async () => {
-            const ordersInfo = await orders.deleteOrder('3');
-            expect(orders.deleteOrder).toBeDefined();
-            expect(ordersInfo).not.toEqual({});
-            console.log(ordersInfo);
-        })
-    })
-
-
-
-    describe('OrderProducts Models', () => {
-
-                ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('getOrderProducts function should return a json list of ordered products by order id', async () => {
-            const orderProductsInfo = await orderProducts.getOrderedProducts('1');
-            expect(orderProducts.getOrderedProducts).toBeDefined();
-            expect(orderProductsInfo).not.toEqual({});
-            console.log(orderProductsInfo);
-        })
-
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('createOrderProducts function should return a json list of ordered products by order id', async () => {
-            const orderProductsInfo = await orderProducts.createOrderProducts(70,4,9);
-            expect(orderProducts.createOrderProducts).toBeDefined();
-            expect(orderProductsInfo).not.toEqual({});
-            console.log(orderProductsInfo);
-        })
-        
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('updateOrdersInfo function should return a message that says record updated', async () => {
-            const orderProductsInfo = await orderProducts.updateOrdersInfo(20,4,8);
-            expect(orderProducts.updateOrdersInfo).toBeDefined();
-            expect(orderProductsInfo).not.toEqual({});
-        })
-    });
-
-
-
-
-    describe('DashBoard Models', () => {
-
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('getJoined function should return a list of joined data', async () => {
-            const joinedInfo = await dashboard.getJoined();
-            expect(dashboard.getJoined).toBeDefined();
-            expect(joinedInfo).not.toEqual({});
-            console.log(joinedInfo);
-        })
-    
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('getProductByLike function should return a jdon object', async () => {
-            const joinedInfo = await dashboard.getProductByLike('Apple');
-            expect(dashboard.getProductByLike).toBeDefined();
-            expect(joinedInfo).not.toEqual({});
-            console.log(joinedInfo);
-        })
-    
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-    
-        it('getProductByLike function should return a jdon object', async () => {
-            const joinedInfo = await dashboard.getProductByPriceRange('30','80');
-            expect(dashboard.getProductByPriceRange).toBeDefined();
-            expect(joinedInfo).not.toEqual({});
-            console.log(joinedInfo);
-        })
-    });
-
-})
 
 ///////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -299,11 +170,6 @@ describe('Testing Models', () => {
 ////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
 describe('Testing Users Endpoints', () => {
 
     beforeAll(() => {
@@ -319,11 +185,36 @@ describe('Testing Users Endpoints', () => {
                 method: 'POST',
                 uri: 'http://127.0.0.1:3000/users/register',
                 body: {
-                    "username":"Echo",
-                    "password":"echo@12345",
-                    "email": "echo.foxtrot@gmail.com",
-                    "firstname": "Echo",
-                    "lastname": "Foxtrot"
+                    "username":"Alpha",
+                    "password":"alpha@12345",
+                    "email": "alpha.beta@gmail.com",
+                    "firstname": "Alpha",
+                    "lastname": "Beta",
+                },
+                json: true
+            };
+
+            request(options).then((response:any) => {
+                expect(response.status).toBeDefined();
+                expect(response).not.toEqual({});
+                console.log(response.token);
+                // token = response;
+            }).catch((err:any) => {
+                console.error(err);
+            })
+
+        });
+
+        it('API response should be a json', async () => {
+            const options = {
+                method: 'POST',
+                uri: 'http://127.0.0.1:3000/users/register',
+                body: {
+                    "username":"Beta",
+                    "password":"beta@12345",
+                    "email": "beta.charlie@gmail.com",
+                    "firstname": "Beta",
+                    "lastname": "Charlie",
                 },
                 json: true
             };
@@ -333,10 +224,79 @@ describe('Testing Users Endpoints', () => {
                 expect(response).not.toEqual({});
             }).catch((err:any) => {
                 console.error(err);
-                
             })
 
         });
+
+        it('API response should be a json', async () => {
+            const options = {
+                method: 'POST',
+                uri: 'http://127.0.0.1:3000/users/register',
+                body: {
+                    "username":"Charlie",
+                    "password":"charlie@12345",
+                    "email": "charlie.delta@gmail.com",
+                    "firstname": "Charlie",
+                    "lastname": "Delta",
+                },
+                json: true
+            };
+
+            request(options).then((response:any) => {
+                expect(response.status).toBeDefined();
+                expect(response).not.toEqual({});
+            }).catch((err:any) => {
+                console.error(err);
+            })
+
+        });
+
+        it('API response should be a json', async () => {
+            const options = {
+                method: 'POST',
+                uri: 'http://127.0.0.1:3000/users/register',
+                body: {
+                    "username":"Delta",
+                    "password":"delta@12345",
+                    "email": "delta.echo@gmail.com",
+                    "firstname": "Delta",
+                    "lastname": "Echo",
+                },
+                json: true
+            };
+
+            request(options).then((response:any) => {
+                expect(response.status).toBeDefined();
+                expect(response).not.toEqual({});
+            }).catch((err:any) => {
+                console.error(err);
+            })
+
+        });
+
+        it('API response should be a json', async () => {
+            const options = {
+                method: 'POST',
+                uri: 'http://127.0.0.1:3000/users/register',
+                body: {
+                    "username":"Echo",
+                    "password":"echo@12345",
+                    "email": "echo.foxtrot@gmail.com",
+                    "firstname": "Echo",
+                    "lastname": "Foxtrot",
+                },
+                json: true
+            };
+
+            request(options).then((response:any) => {
+                expect(response.status).toBeDefined();
+                expect(response).not.toEqual({});
+            }).catch((err:any) => {
+                console.error(err);
+            })
+
+        });
+
       });
 
         describe('Get /users/allUsers', () => {
@@ -354,6 +314,7 @@ describe('Testing Users Endpoints', () => {
             expect(response).not.toEqual({});
             console.log(response);
         }).catch((err:any) => {
+            console.error(err);
         })
 
         });
@@ -378,6 +339,7 @@ describe('Testing Users Endpoints', () => {
             request(options).then((response:any) => {
                 expect(response.status).toBeDefined();
                 expect(response).not.toEqual({});
+                console.log(response);
             }).catch((err:any) => {
             })
         });
@@ -402,7 +364,9 @@ describe('Testing Users Endpoints', () => {
             request(options).then((response:any) => {
                 expect(response.status).toBeDefined();
                 expect(response).not.toEqual({});
+                console.log(response);
             }).catch((err:any) => {
+                console.error(err);
             })
         });
       });
@@ -413,8 +377,8 @@ describe('Testing Users Endpoints', () => {
                 method: 'POST',
                 uri: 'http://127.0.0.1:3000/users/deleteUser',
                 body: {
-                    "username":"Beta",
-                    "password":"beta@12345"
+                    "username":"Echo",
+                    "password":"echo.foxtrot@gmail.com"
                 },
                 headers: {
                     'Authorization': 'Bearer ' + token
@@ -425,13 +389,15 @@ describe('Testing Users Endpoints', () => {
             request(options).then((response:any) => {
                 expect(response.status).toBeDefined();
                 expect(response).not.toEqual({});
+                console.log(response);
             }).catch((err:any) => {
+                console.error(err);
             })
         });
     });
 
     describe('Testing Products Endpoints', () => {
-
+        console.log(token);
         describe('Post /products/addNewProducts', () => {
             it('API response should be a json', async () => {
     
@@ -439,7 +405,7 @@ describe('Testing Users Endpoints', () => {
                     method: 'POST',
                     uri: 'http://127.0.0.1:3000/products/addNewProducts',
                     body: {
-                        "product":"Coconut",
+                        "product":"Apple",
                         "price":90
                     },
                     headers: {
@@ -451,6 +417,111 @@ describe('Testing Users Endpoints', () => {
                 request(options).then((response:any) => {
                     expect(response.status).toBeDefined();
                     expect(response).not.toEqual({});
+                    console.log(response);
+                }).catch((err:any) => {
+                    console.error(err);
+                    
+                })
+    
+            });
+
+            it('API response should be a json', async () => {
+    
+                const options = {
+                    method: 'POST',
+                    uri: 'http://127.0.0.1:3000/products/addNewProducts',
+                    body: {
+                        "product":"Banana",
+                        "price":50
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                };
+    
+                request(options).then((response:any) => {
+                    expect(response.status).toBeDefined();
+                    expect(response).not.toEqual({});
+                    console.log(response);
+                }).catch((err:any) => {
+                    console.error(err);
+                    
+                })
+    
+            });
+
+            it('API response should be a json', async () => {
+    
+                const options = {
+                    method: 'POST',
+                    uri: 'http://127.0.0.1:3000/products/addNewProducts',
+                    body: {
+                        "product":"Book",
+                        "price":20
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                };
+    
+                request(options).then((response:any) => {
+                    expect(response.status).toBeDefined();
+                    expect(response).not.toEqual({});
+                    console.log(response);
+                }).catch((err:any) => {
+                    console.error(err);
+                    
+                })
+    
+            });
+
+            it('API response should be a json', async () => {
+    
+                const options = {
+                    method: 'POST',
+                    uri: 'http://127.0.0.1:3000/products/addNewProducts',
+                    body: {
+                        "product":"Cup",
+                        "price":10
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                };
+    
+                request(options).then((response:any) => {
+                    expect(response.status).toBeDefined();
+                    expect(response).not.toEqual({});
+                    console.log(response);
+                }).catch((err:any) => {
+                    console.error(err);
+                    
+                })
+    
+            });
+
+            it('API response should be a json', async () => {
+    
+                const options = {
+                    method: 'POST',
+                    uri: 'http://127.0.0.1:3000/products/addNewProducts',
+                    body: {
+                        "product":"Corn",
+                        "price":30
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                };
+    
+                request(options).then((response:any) => {
+                    expect(response.status).toBeDefined();
+                    expect(response).not.toEqual({});
+                    console.log(response);
                 }).catch((err:any) => {
                     console.error(err);
                     
@@ -510,7 +581,7 @@ describe('Testing Users Endpoints', () => {
                     method: 'PUT',
                     uri: 'http://127.0.0.1:3000/products/updateProductPrice',
                     body: {
-                        "productId":"2",
+                        "productId":"1",
                         "productPrice": 12
                     },
                     headers: {
@@ -535,8 +606,7 @@ describe('Testing Users Endpoints', () => {
                     method: 'POST',
                     uri: 'http://127.0.0.1:3000/products/deleteProduct',
                     body: {
-                        "username":"Beta",
-                        "password":"beta@12345"
+                        "productId": "5"
                     },
                     headers: {
                         'Authorization': 'Bearer ' + token
@@ -578,6 +648,118 @@ describe('Testing Users Endpoints', () => {
                 })
             })
         });
+
+        describe('Post /orders/createOrder', () => {
+            it('API response should be a json', async () => {
+                const options = {
+                    method: 'POST',
+                    uri: 'http://127.0.0.1:3000/orders/createOrder',
+                    body: {
+                        "userId": "1"
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                };
+    
+                request(options).then((response:any) => {
+                    expect(response.status).toBeDefined();
+                    expect(response).not.toEqual({});
+                }).catch((err:any) => {
+                    console.error(err);
+                    
+                })
+            })
+
+            it('API response should be a json', async () => {
+                const options = {
+                    method: 'POST',
+                    uri: 'http://127.0.0.1:3000/orders/createOrder',
+                    body: {
+                        "userId": "2"
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                };
+    
+                request(options).then((response:any) => {
+                    expect(response.status).toBeDefined();
+                    expect(response).not.toEqual({});
+                }).catch((err:any) => {
+                    console.error(err);
+                    
+                })
+            })
+
+            it('API response should be a json', async () => {
+                const options = {
+                    method: 'POST',
+                    uri: 'http://127.0.0.1:3000/orders/createOrder',
+                    body: {
+                        "userId": "3"
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                };
+    
+                request(options).then((response:any) => {
+                    expect(response.status).toBeDefined();
+                    expect(response).not.toEqual({});
+                }).catch((err:any) => {
+                    console.error(err);
+                    
+                })
+            })
+
+            it('API response should be a json', async () => {
+                const options = {
+                    method: 'POST',
+                    uri: 'http://127.0.0.1:3000/orders/createOrder',
+                    body: {
+                        "userId": "3"
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                };
+    
+                request(options).then((response:any) => {
+                    expect(response.status).toBeDefined();
+                    expect(response).not.toEqual({});
+                }).catch((err:any) => {
+                    console.error(err);
+                    
+                })
+            })
+
+            it('API response should be a json', async () => {
+                const options = {
+                    method: 'POST',
+                    uri: 'http://127.0.0.1:3000/orders/createOrder',
+                    body: {
+                        "userId": "4"
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    json: true
+                };
+    
+                request(options).then((response:any) => {
+                    expect(response.status).toBeDefined();
+                    expect(response).not.toEqual({});
+                }).catch((err:any) => {
+                    console.error(err);
+                    
+                })
+            })
+        });
     
         describe('Post /orders/getOrder', () => {
             it('API response should be a json', async () => {
@@ -603,29 +785,7 @@ describe('Testing Users Endpoints', () => {
             })
         });
     
-        describe('Post /orders/createOrder', () => {
-            it('API response should be a json', async () => {
-                const options = {
-                    method: 'POST',
-                    uri: 'http://127.0.0.1:3000/orders/createOrder',
-                    body: {
-                        "userId": "1"
-                    },
-                    headers: {
-                        'Authorization': 'Bearer ' + token
-                    },
-                    json: true
-                };
-    
-                request(options).then((response:any) => {
-                    expect(response.status).toBeDefined();
-                    expect(response).not.toEqual({});
-                }).catch((err:any) => {
-                    console.error(err);
-                    
-                })
-            })
-        });
+
     
         describe('Put /orders/updateOrder', () => {
             it('API response should be a json', async () => {
@@ -633,7 +793,7 @@ describe('Testing Users Endpoints', () => {
                     method: 'PUT',
                     uri: 'http://127.0.0.1:3000/orders/updateOrder',
                     body: {
-                        "orderId": "2",
+                        "orderId": "1",
                         "orderStatus": "Complete"
                     },
                     headers: {
@@ -658,7 +818,7 @@ describe('Testing Users Endpoints', () => {
                     method: 'POST',
                     uri: 'http://127.0.0.1:3000/orders/deleteOrder',
                     body: {
-                        "orderId": "1"
+                        "orderId": "4"
                     },
                     headers: {
                         'Authorization': 'Bearer ' + token
@@ -728,11 +888,6 @@ describe('Testing Users Endpoints', () => {
                 const options = {
                     method: 'GET',
                     uri: 'http://127.0.0.1:3000/dashboard/getProductByPriceRange/minPrice=50&maxPrice=100',
-                    body: {
-                        "quantity": 50,
-                        "ordersId": 1,
-                        "product_id":1
-                    },
                     headers: {
                         'Authorization': 'Bearer ' + token
                     },

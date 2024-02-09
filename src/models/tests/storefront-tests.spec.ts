@@ -751,3 +751,227 @@
     
 //     })
 // })
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+        // describe('This Tests Creates Records In The Products Table', () => {
+
+        //      it('addNewProducts function must return a message that says product was created', async () => {
+        //         const productsInfo = await products.addNewProducts("Apple", 40);
+        //         expect(products.addNewProducts).toBeDefined();
+        //         expect(productsInfo).not.toEqual({});
+        //         console.log(productsInfo);
+        //         // expect(productsInfo.length).toBeTruthy;
+        //     });
+    
+        //     it('addNewProducts function must return a message that says product was created', async () => {
+        //         const productsInfo = await products.addNewProducts('Banana',10);
+        //         expect(products.addNewProducts).toBeDefined();
+        //         expect(productsInfo).not.toEqual({});
+        //         console.log(productsInfo);
+        //         // expect(productsInfo.length).toBeTruthy;
+        //     })
+    
+        //     it('addNewProducts function must return a message that says product was created', async () => {
+        //         const productsInfo = await products.addNewProducts('Cup',30);
+        //         expect(products.addNewProducts).toBeDefined();
+        //         expect(productsInfo).not.toEqual({});
+        //         console.log(productsInfo);
+        //         // expect(productsInfo.length).toBeTruthy;
+        //     })
+
+        //     //////////////////////////////////////////////////////////////////////////////
+        //     //////////////////////////////////////////////////////////////////////////////
+        //     //////////////////////////////////////////////////////////////////////////////
+    
+            
+        //     // it('getAllProducts function should return a list of all products', async () => {
+        //     //     const productsInfo = await products.getAllProducts();
+        //     //     expect(products.getAllProducts).toBeDefined();
+        //     //     expect(productsInfo).not.toEqual({});
+        //     //     console.log(productsInfo);
+        //     //     // expect(productsInfo.length).toBeTruthy;
+
+        //     // });
+        
+        //     // //////////////////////////////////////////////////////////////////////////////
+        //     // //////////////////////////////////////////////////////////////////////////////
+        //     // //////////////////////////////////////////////////////////////////////////////
+    
+    
+        //     // it('getProductByName function should one product as a json object', async () => {
+        //     //     const productsInfo = await products.getProductByName('Apple');
+        //     //     expect(products.getProductByName).toBeDefined();
+        //     //     expect(productsInfo).not.toEqual({});
+        //     //     console.log(productsInfo);
+        //     //     // expect(productsInfo.length).toBeTruthy;
+        //     // })
+
+        //     //////////////////////////////////////////////////////////////////////////////
+        //     //////////////////////////////////////////////////////////////////////////////
+        //     //////////////////////////////////////////////////////////////////////////////
+    
+        //     // it('updateProductInfo function must return a message that says record was updated', async () => {
+        //     //     const productsInfo = await products.updateProductInfo('3',500);
+        //     //     expect(products.updateProductInfo).toBeDefined();
+        //     //     expect(productsInfo).not.toEqual({});
+        //     //     console.log(productsInfo);
+        //     //     // expect(productsInfo.length).toBeTruthy;
+        //     // });
+    
+        //     // //////////////////////////////////////////////////////////////////////////////
+        //     // //////////////////////////////////////////////////////////////////////////////
+        //     // //////////////////////////////////////////////////////////////////////////////
+    
+        //     // it('deleteProduct function must return a message that says record was deleted', async () => {
+        //     //     const productsInfo = await products.deleteProduct('5');
+        //     //     expect(products.deleteProduct).toBeDefined();
+        //     //     expect(productsInfo).not.toEqual({});
+        //     //     console.log(productsInfo);
+        //     //     // expect(productsInfo.length).toBeTruthy;
+        //     // });
+
+        // });
+
+
+ 
+
+    // describe("Orders Models", () => {
+
+    //     it('getAllOrders function should return a json list of all orders', async () => {
+    //         const ordersInfo = await orders.getAllOrders();
+    //         expect(orders.getAllOrders).toBeDefined();
+    //         expect(ordersInfo).not.toEqual({});
+    //         console.log(ordersInfo);
+    //     })
+
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     // it('getNewOrder function should return a json message that show that a new order was created successfully', async () => {
+    //     //     const ordersInfo = await orders.newOrder(24);
+    //     //     expect(orders.newOrder).toBeDefined();
+    //     //     expect(ordersInfo).not.toEqual({});
+    //     //     console.log(ordersInfo);
+    //     // })
+    
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     // it('getOrderById function should return a json object a one order information', async () => {
+    //     //     const ordersInfo = await orders.getOrderById('1');
+    //     //     expect(orders.getOrderById).toBeDefined();
+    //     //     expect(ordersInfo).not.toEqual({});
+    //     //     console.log(ordersInfo);
+    //     // })
+    
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     // it('updateOrder function should return a json message that the record was updated', async () => {
+    //     //     const ordersInfo = await orders.updateOrderInfo('3','Complete');
+    //     //     expect(orders.updateOrderInfo).toBeDefined();
+    //     //     expect(ordersInfo).not.toEqual({});
+    //     //     console.log(ordersInfo);
+    //     // })
+    
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     // it('deleteOrder function should return a json message that the record was deleted successfully', async () => {
+    //     //     const ordersInfo = await orders.deleteOrder('3');
+    //     //     expect(orders.deleteOrder).toBeDefined();
+    //     //     expect(ordersInfo).not.toEqual({});
+    //     //     console.log(ordersInfo);
+    //     // })
+    // })
+
+    // describe('OrderProducts Models', () => {
+
+    //             ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     it('getOrderProducts function should return a json list of ordered products by order id', async () => {
+    //         const orderProductsInfo = await orderProducts.getOrderedProducts('1');
+    //         expect(orderProducts.getOrderedProducts).toBeDefined();
+    //         expect(orderProductsInfo).not.toEqual({});
+    //         console.log(orderProductsInfo);
+    //     })
+
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     it('createOrderProducts function should return a json list of ordered products by order id', async () => {
+    //         const orderProductsInfo = await orderProducts.createOrderProducts(70,4,9);
+    //         expect(orderProducts.createOrderProducts).toBeDefined();
+    //         expect(orderProductsInfo).not.toEqual({});
+    //         console.log(orderProductsInfo);
+    //     })
+        
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     it('updateOrdersInfo function should return a message that says record updated', async () => {
+    //         const orderProductsInfo = await orderProducts.updateOrdersInfo(20,4,8);
+    //         expect(orderProducts.updateOrdersInfo).toBeDefined();
+    //         expect(orderProductsInfo).not.toEqual({});
+    //     })
+    // });
+
+
+
+
+    // describe('DashBoard Models', () => {
+
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     it('getJoined function should return a list of joined data', async () => {
+    //         const joinedInfo = await dashboard.getJoined();
+    //         expect(dashboard.getJoined).toBeDefined();
+    //         expect(joinedInfo).not.toEqual({});
+    //         console.log(joinedInfo);
+    //     })
+    
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     it('getProductByLike function should return a jdon object', async () => {
+    //         const joinedInfo = await dashboard.getProductByLike('Apple');
+    //         expect(dashboard.getProductByLike).toBeDefined();
+    //         expect(joinedInfo).not.toEqual({});
+    //         console.log(joinedInfo);
+    //     })
+    
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    //     ////////////////////////////////////////////////////////////////////////////////
+    
+    //     it('getProductByLike function should return a jdon object', async () => {
+    //         const joinedInfo = await dashboard.getProductByPriceRange('30','80');
+    //         expect(dashboard.getProductByPriceRange).toBeDefined();
+    //         expect(joinedInfo).not.toEqual({});
+    //         console.log(joinedInfo);
+    //     })
+    // });

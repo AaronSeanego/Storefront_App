@@ -10,7 +10,7 @@ let ordersProductsList:any;
 export class OrderProductsModels {
 
     async getOrderedProducts(orderId:string): Promise<any> {
-        console.log("Order ID: " + orderId);
+
         try {
             await client.connect();
             const orderedProducts = await client.query("SELECT * FROM orders_products WHERE orders_id = '" + orderId + "'");
@@ -27,8 +27,7 @@ export class OrderProductsModels {
             }
         } catch (e) {
             console.error(e);
-        } finally {
-
+            return {"error": e};
         }
     }
 
@@ -52,7 +51,7 @@ export class OrderProductsModels {
             }
         } catch (e) {
             console.log(e);
-        } finally {
+            return {"error": e};
         }
     }
 
@@ -72,7 +71,8 @@ export class OrderProductsModels {
                 }
             }
         } catch (err) {
-
+            console.error(err);
+            return {"error": err};
         }
     }
 }

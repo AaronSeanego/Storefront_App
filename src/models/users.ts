@@ -27,7 +27,6 @@ export class UserModels {
         try {
             await client.connect();
             const userData = await client.query("SELECT * FROM users");
-            // console.log(userInfo.rows);
             userInfo = userData.rows;
             if(userData.rowCount == 0) {
                 return {
@@ -42,11 +41,8 @@ export class UserModels {
 
         } catch (err) {
             console.error(err);
-            throw err;
-        } finally {
-            console.log(usersInfoObj);
-            // client.end();
-            // await client.release();
+            // throw err;
+            return {err}
         }
     }
 
@@ -63,21 +59,6 @@ export class UserModels {
                     "message": username + " was not found in the database" 
                 };
             }else if(userInfo.rowCount > 0) {
-
-                // if(userInfo.rows.length) {
-                //     const user = userInfo.rows[0];
-                //     bcrypt.compare(password + "pepper", user.password, (err:string, result:string) => {
-                //         if (err) {
-
-                //         }
-                //         if(result) {
-                //             passwordCorrect = true;
-                //         }else {
-                //             passwordCorrect = false;
-                //         }
-                //     });
-
-                // }
 
                 bcrypt.compare(password + "pepper", user.password, (err:string, result:string) => {
                     if (err) {
@@ -106,11 +87,8 @@ export class UserModels {
 
         } catch (err) {
             console.error(err);
-            throw err;
-        } finally {
-            console.log(usersInfoObj);
-            // client.end();
-            // await client.release();
+            return err;
+            // throw err;
         }
     }
 
@@ -134,10 +112,8 @@ export class UserModels {
             }
         } catch (err) {
             console.error(err);
-            throw err;
-        } finally {
-            // client.end();
-            // await client.release();
+            return err;
+            // throw err;
         }
     }
 
@@ -158,8 +134,7 @@ export class UserModels {
             }
         } catch (err) {
             console.log(err);
-        } finally {
-            // client.end();
+            return err;
         }
     }
 
@@ -184,10 +159,7 @@ export class UserModels {
 
         } catch (err) {
             console.error(err);
-            throw err;
-        } finally {
-            // client.end();
-            // await client.release();
+            return err;
         }
 
     }

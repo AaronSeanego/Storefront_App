@@ -8,12 +8,8 @@ const dashboardMethod = new DashBoardModels();
 
 const getJoinedData = async (_req:Request, res:Response) => {
     try {
-        // const authorizationHeader = _req.headers.authorization;
         const authorizationHeader = _req.headers.authorization;
-        // const token = authorizationHeader?.slice(7,authorizationHeader.length);
         const token = authorizationHeader?.split(' ')[1];
-        console.log(token);
-        // const token = authorizationHeader.split(' ')[1];
         jwt.verify(token, process.env.TOKEN_SECRET);
     } catch (err) {
         res.status(401);
@@ -23,23 +19,19 @@ const getJoinedData = async (_req:Request, res:Response) => {
 
     try {
         const joindedInfo = await dashboardMethod.getJoined();
-        console.log(joindedInfo);
         res.status(200).json(joindedInfo);
-        // client.release();
     } catch (err) {
-
+        console.error(err);
+        res.status(400);
+        res.json({"error": err});
     }
 
 }
 
 const getProductPrice = async (_req:Request, res:Response) => {
     try {
-        // const authorizationHeader = _req.headers.authorization;
         const authorizationHeader = _req.headers.authorization;
-        // const token = authorizationHeader?.slice(7,authorizationHeader.length);
         const token = authorizationHeader?.split(' ')[1];
-        console.log(token);
-        // const token = authorizationHeader.split(' ')[1];
         jwt.verify(token, process.env.TOKEN_SECRET);
     } catch (err) {
         res.status(401);
@@ -50,20 +42,17 @@ const getProductPrice = async (_req:Request, res:Response) => {
     try {
         const products = await dashboardMethod.getProductByLike(_req.params.nameString);
         res.status(200).json(products);
-        // client.release();
     } catch (err) {
-
+        console.error(err);
+        res.status(400);
+        res.json({"error": err});
     }
 }
 
 const getProductPriceRange = async (_req:Request, res:Response) => {
     try {
-        // const authorizationHeader = _req.headers.authorization;
         const authorizationHeader = _req.headers.authorization;
-        // const token = authorizationHeader?.slice(7,authorizationHeader.length);
         const token = authorizationHeader?.split(' ')[1];
-        console.log(token);
-        // const token = authorizationHeader.split(' ')[1];
         jwt.verify(token, process.env.TOKEN_SECRET);
     } catch (err) {
         res.status(401);
@@ -72,11 +61,12 @@ const getProductPriceRange = async (_req:Request, res:Response) => {
     }
 
     try {
-        const products = await dashboardMethod.getProductByLike(_req.params.nameString);
+        const products = await dashboardMethod.getProductByPriceRange(_req.params.min,_req.params.max);
         res.status(200).json(products);
-        // client.release();
     } catch (err) {
-
+        console.error(err);
+        res.status(400);
+        res.json({"error": err});
     }
 }
 

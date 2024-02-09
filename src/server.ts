@@ -16,6 +16,7 @@ const port:number = 3000;
 
 app.use(cors());
 
+/*"test": "SET ENV=test && npx tsc && db-migrate up && db-migrate --env test up && jasmine-ts && db-migrate db:drop storefront_app_test_db",*/
 // const oneDay = 1000 * 60 * 60 * 24;
 
 // const corsOptions = {

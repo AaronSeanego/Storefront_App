@@ -12,11 +12,11 @@ These are the notes from a meeting with the frontend developer that describe wha
 - [OPTIONAL] Products by category (args: product category)
 
 #### Users
-- 127.0.0.1:3000/users/allUsers - (header: token)
-- 127.0.0.1:3000/users/login - (body: {"username":"Beta","password":"beta@12345"}) - (header: token)
-- 127.0.0.1:3000/users/register - (body: {"username":"Echo","password":"echo@12345","email":"email@gmail.com"}) - (header: token)
-- 127.0.0.1:3000/users/updateEmail - (body: {"userName": "Alpha", "userEmail": "alpha@alpha.com"}) - (header: token)
-- 127.0.0.1:3000/users/updateEmail - (body: {"username":"Echo"}) - (header: token)
+- /users/allUsers - (header: token)
+- /users/login - (body: {"username":"Beta","password":"beta@12345"}) - (header: token)
+- /users/register - (body: {"username":"Echo","password":"echo@12345","email":"email@gmail.com"}) - (header: token)
+- /users/updateEmail - (body: {"userName": "Alpha", "userEmail": "alpha@alpha.com"}) - (header: token)
+- /users/updateEmail - (body: {"username":"Echo"}) - (header: token)
 - 
 - Index [token required]
 - Show [token required]
@@ -28,67 +28,137 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## Data Shapes
 #### Product
-- 127.0.0.1:3000/products/allProducts - (header: token)
-- 127.0.0.1:3000//products/productByName - (body: {"product":"Apple"}) - (header: token)
-- 127.0.0.1:3000/products/addNewProducts - (body: {"product":"Coconut","price":90}) - (header: token)
-- 127.0.0.1:3000/products/updateProductPrice - (body: {"productId","2","productPrice": 12}) - (header: token)
--127.0.0.1:3000/products/deleteProduct - (body: {"productId": "3"}) - (header: token)
--  id
-- name
-- price
-- [OPTIONAL] category
+- /products/allProducts - (header: token)
+- /products/productByName - (body: {"product":"Apple"}) - (header: token)
+- /products/addNewProducts - (body: {"product":"Coconut","price":90}) - (header: token)
+- /products/updateProductPrice - (body: {"productId","2","productPrice": 12}) - (header: token)
+- /products/deleteProduct - (body: {"productId": "3"}) - (header: token)
+
+-  id: integer
+- name: string
+- price : integer
 
 #### User
-- id
-- firstName
-- lastName
-- password
+- id : integer
+- firstName: string
+- lastName: string
+- password: string
+- email: string
 
 #### Orders
-- id
-- id of each product in the order
-- quantity of each product in the order
-- user_id
-- status of order (active or complete)
+- id: integer
+- user_id : integer
+- status of order (active or complete):string
 
+#### Orders_Products
+- id: integer
+- quantity of each product in the order: integer
+- product_id: integer
+- order_id: integer
 
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#########################################################################################
+#########################################################################################
 
 ##### API EndPoints List
 #### Users ####
+## Users Scheme ##
 
-- 127.0.0.1:3000/users/allUsers - (header: token)
-- 127.0.0.1:3000/users/login - (body: {"username":"Beta","password":"beta@12345"}) - (header: token)
-- 127.0.0.1:3000/users/register - (body: {"username":"Echo","password":"echo@12345","email":"email@gmail.com","firstname":"Echo","lastname":"Foxtrot"})
-- 127.0.0.1:3000/users/updateEmail - (body: {"userName": "Alpha", "userEmail": "alpha@alpha.com"}) - (header: token)
-- 127.0.0.1:3000/users/updateEmail - (body: {"username":"Echo"}) - (header: token)
+- id : integer
+- firstName: string
+- lastName: string
+- password: string
+- email: string
+
+## Endpoints ##
+- /users/allUsers 
+    - (header: token)
+- /users/login 
+    - (body: {"username":"Beta","password":"beta@12345"}) 
+    - (header: token)
+- /users/register 
+    - (body: {"username":"Echo","password":"echo@12345","email":"email@gmail.com","firstname":"Echo","lastname":"Foxtrot"})
+- /users/updateEmail 
+    - (body: {"userName": "Alpha", "userEmail": "alpha@alpha.com"}) 
+    - (header: token)
+- /users/updateEmail 
+    - (body: {"username":"Echo"}) 
+    - (header: token)
 
 #### Products ####
+## Products Scheme ##
 
-- 127.0.0.1:3000/products/allProducts - (header: token)
-- 127.0.0.1:3000//products/productByName - (body: {"product":"Apple"}) - (header: token)
-- 127.0.0.1:3000/products/addNewProducts - (body: {"product":"Coconut","price":90}) - (header: token)
-- 127.0.0.1:3000/products/updateProductPrice - (body: {"productId","2","productPrice": 12}) - (header: token)
-- 127.0.0.1:3000/products/deleteProduct - (body: {"productId": "3"}) - (header: token)
+-  id: integer
+- name: string
+- price : integer
 
+## Endpoints ##
+- /products/allProducts 
+    - (header: token)
+- /products/productByName 
+    - (body: {"product":"Apple"}) 
+    - (header: token)
+- /products/addNewProducts 
+    - (body: {"product":"Coconut","price":90}) 
+    - (header: token)
+- /products/updateProductPrice 
+    - (body: {"productId","2","productPrice": 12}) 
+    - (header: token)
+- /products/deleteProduct 
+    - (body: {"productId": "3"}) 
+    - (header: token)
 
 
 #### Orders ####
+## Orders Scheme ##
 
-- 127.0.0.1:3000/orders/allOrders - (header: token)
-- 127.0.0.1:3000/orders/getOrder - (body: {"usersId": "1"}) - (header: token)
-- 127.0.0.1:3000/orders/createOrder - (body: {"userId": "1"}) - (header: token)
-- 127.0.0.1:3000/orders/updateOrder - (body: {"orderId": "2","orderStatus": "Complete"}) - (header: token)
-- 127.0.0.1:3000/orders/deleteOrder - (body: {"orderId": "1"}) - (header: token)
+- id: integer
+- user_id : integer
+- status of order (active or complete):string
 
-#### Cart ####
+## Endpoints ##
+- /orders/allOrders 
+    - (header: token)
+- /orders/getOrder
+    - (body: {"usersId": "1"})
+    - (header: token)
+- /orders/createOrder 
+    - (body: {"userId": "1"})
+    - (header: token)
+- /orders/updateOrder 
+    - (body: {"orderId": "2","orderStatus": "Complete"})
+    - (header: token)
+- /orders/deleteOrder 
+    - (body: {"orderId": "1"}) 
+    - (header: token)
 
-- 127.0.0.1:3000/ordersProducts/:id/products - (header: token)
-- 127.0.0.1:3000/ordersProducts/createOrdersProducts - (body: {"quantity": 20,"ordersId": 1,"productId": 2 }) - (header: token)
-- 127.0.0.1:3000/ordersProducts/updateOrders - (body: {"quantity": 50,"ordersId": 1,"product_id":1}) - (header: token)
+#### OrderProducts(Cart) ####
+## OrderProducts(Cart) Scheme ##
+
+- id: integer
+- quantity of each product in the order: integer
+- product_id: integer
+- order_id: integer
+
+## Endpoints ##
+- /ordersProducts/:id/products 
+    - (header: token)
+- /ordersProducts/createOrdersProducts 
+    - (body: {"quantity": 20,"ordersId": 1,"productId": 2 }) 
+    - (header: token)
+- /ordersProducts/updateOrders 
+    - (body: {"quantity": 50,"ordersId": 1,"product_id":1}) 
+    - (header: token)
 
 #### Dashboard ####
+## Endpoints ##
 
-- 127.0.0.1:3000/dashboard/joinedData - (header: token)
-- 127.0.0.1:3000/dashboard/getProductByPrice/:nameString - (header: token)
-- 127.0.0.1:3000/dashboard/getProductByPriceRange/minPrice=:min&maxPrice=:max - (header: token)
+- /dashboard/joinedData 
+    - (header: token)
+- /dashboard/getProductByPrice/:nameString 
+    - (header: token)
+- /dashboard/getProductByPriceRange/minPrice=:min&maxPrice=:max 
+    - (header: token)
 

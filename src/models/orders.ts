@@ -28,6 +28,7 @@ export class OrderModels {
             }
         } catch (err) {
             console.error(err);
+            return {"error": err};
         }
     }
 
@@ -48,7 +49,8 @@ export class OrderModels {
                 }
             }
         } catch (err) {
-            
+            console.error(err);
+            return {"error": err};
         }
     }
 
@@ -70,13 +72,14 @@ export class OrderModels {
             }
         } catch (err) {
             console.error(err);
+            return {"error": err};
         }
     }
 
     async updateOrderInfo(orderId: string, orderStatus: string): Promise<any> {
         try {
             await client.connect();
-            const updatedData = await client.query("UPDATE orders SET status = '" + orderId + "' WHERE userName = '" + orderStatus + "'");
+            const updatedData = await client.query("UPDATE orders SET status = '" + orderStatus + "' WHERE id = '" + orderId + "'");
             if(updatedData.rowCount == 0) {
                 return {
                     "status": "Failed",
@@ -89,7 +92,8 @@ export class OrderModels {
                 }
             }
         } catch (err) {
-
+            console.error(err);
+            return {"error": err};
         }
     }
 
@@ -109,6 +113,7 @@ export class OrderModels {
             }
         } catch (e) {
             console.error(e);
+            return {"error": e};
         }
     }
 }

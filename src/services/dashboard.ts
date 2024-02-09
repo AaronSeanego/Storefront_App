@@ -26,6 +26,7 @@ export class DashBoardModels {
             }
         } catch (e) {
             console.error(e);
+            return {"error": e};
         }
     }
 
@@ -46,6 +47,7 @@ export class DashBoardModels {
             }
         } catch (err) {
             console.log(err);
+            return {"error": err};
         }
     }
 
@@ -66,6 +68,7 @@ export class DashBoardModels {
             }
         } catch (err) {
             console.log(err);
+            return {"error": err};
         }
     }
 }
