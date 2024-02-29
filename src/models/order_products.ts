@@ -12,8 +12,9 @@ export class OrderProductsModels {
     async getOrderedProducts(orderId:string): Promise<any> {
 
         try {
-            await client.connect();
-            const orderedProducts = await client.query("SELECT * FROM orders_products WHERE orders_id = '" + orderId + "'");
+            const conn = await client.connect();
+            const orderedProducts = await conn.query("SELECT * FROM orders_products WHERE orders_id = '" + orderId + "'");
+            conn.release();
             ordersProductsList = orderedProducts.rows;
             if(orderedProducts.rowCount == 0) {
                 return {
@@ -34,8 +35,9 @@ export class OrderProductsModels {
     async createOrderProducts(quantity:number, orders_id:number, product_id:number): Promise<any> {
         
         try {
-            await client.connect();
-            const newOrderProducts = await client.query("INSERT INTO orders_products(quantity,orders_id,products_id) VALUES('" + quantity + "','" + orders_id + "','" + product_id + "')");
+            const conn = await client.connect();
+            const newOrderProducts = await conn.query("INSERT INTO orders_products(quantity,orders_id,products_id) VALUES('" + quantity + "','" + orders_id + "','" + product_id + "')");
+            conn.release();
             ordersProductsList = newOrderProducts.rows;
 
             if(newOrderProducts.rowCount == 0) {
@@ -57,8 +59,9 @@ export class OrderProductsModels {
 
     async updateOrdersInfo(quantity: number, order_id: number,product_id: number): Promise<any> {
         try {
-            await client.connect();
-            const updatedData = await client.query("UPDATE orders_products SET quantity = '" + quantity + "' WHERE orders_id = '" + order_id + "' AND products_id = '" + product_id + "'");
+            const conn = await client.connect();
+            const updatedData = await conn.query("UPDATE orders_products SET quantity = '" + quantity + "' WHERE orders_id = '" + order_id + "' AND products_id = '" + product_id + "'");
+            conn.release();
             if(updatedData.rowCount == 0) {
                 return {
                     "status": "Failed",

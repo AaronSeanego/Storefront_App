@@ -12,8 +12,9 @@ let orderInfo:any;
 export class OrderModels {
     async getAllOrders(): Promise<any> {
         try {
-            await client.connect();
-            const orders = await client.query("SELECT * FROM orders");
+            const conn = await client.connect();
+            const orders = await conn.query("SELECT * FROM orders");
+            conn.release();
             orderObj = orders.rows;
 
             if(orders.rowCount == 0) {
@@ -34,8 +35,9 @@ export class OrderModels {
 
     async getOrderById(id: string): Promise<any> {
         try {
-            await client.connect();
-            const order = await client.query("SELECT * FROM orders WHERE users_id = '" + id + "'");
+            const conn = await client.connect();
+            const order = await conn.query("SELECT * FROM orders WHERE users_id = '" + id + "'");
+            conn.release();
             orderInfo = order.rows;
 
             if(order.rowCount == 0) {
@@ -57,8 +59,9 @@ export class OrderModels {
     async newOrder(user_id:number): Promise<any> {
         let orderStatus = "Active";
         try {
-            await client.connect();
-            const newOrder = await client.query("INSERT INTO orders(status,users_id) VALUES ('" + orderStatus + "','" + user_id + "')");
+            const conn = await client.connect();
+            const newOrder = await conn.query("INSERT INTO orders(status,users_id) VALUES ('" + orderStatus + "','" + user_id + "')");
+            conn.release();
             if(newOrder.rowCount == 0) {
                 return {
                     "status": "Failed",
@@ -78,8 +81,9 @@ export class OrderModels {
 
     async updateOrderInfo(orderId: string, orderStatus: string): Promise<any> {
         try {
-            await client.connect();
-            const updatedData = await client.query("UPDATE orders SET status = '" + orderStatus + "' WHERE id = '" + orderId + "'");
+            const conn = await client.connect();
+            const updatedData = await conn.query("UPDATE orders SET status = '" + orderStatus + "' WHERE id = '" + orderId + "'");
+            conn.release();
             if(updatedData.rowCount == 0) {
                 return {
                     "status": "Failed",
@@ -99,8 +103,9 @@ export class OrderModels {
 
     async deleteOrder(id: string): Promise<any> {
         try {
-            await client.connect();
-            const deletedOrder = await client.query("DELETE FROM orders WHERE id = '" + id + "'");
+            const conn = await client.connect();
+            const deletedOrder = await conn.query("DELETE FROM orders WHERE id = '" + id + "'");
+            conn.release();
             if(deletedOrder.rowCount == 0) {
                 return {
                     "status": "Failed",

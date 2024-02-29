@@ -22,8 +22,9 @@ export class ProductsModels {
         // @ts-ignore
         // userDataObj = {};
         try {
-            await client.connect();
-            const resData = await client.query('SELECT * FROM products');
+            const conn = await client.connect();
+            const resData = await conn.query('SELECT * FROM products');
+            conn.release();
             userDataObj = resData.rows;
 
             if(resData.rowCount == 0) {
@@ -48,8 +49,9 @@ export class ProductsModels {
         // @ts-ignore
         // userDataObj = {};
         try {
-            await client.connect();
-            const res = await client.query("SELECT * FROM products WHERE name ='" + product_name + "'");
+            const conn = await client.connect();
+            const res = await conn.query("SELECT * FROM products WHERE name ='" + product_name + "'");
+            conn.release();
             userDataObj = res.rows;
 
             if(res.rowCount == 0) {
@@ -75,8 +77,9 @@ export class ProductsModels {
         //@ts-ignore
         // updateResponse = {};
         try {
-            await client.connect();
-            const newItems = await client.query("INSERT INTO products (name, price) VALUES ('" + productName + "','" + productPrice + "')");
+            const conn = await client.connect();
+            const newItems = await conn.query("INSERT INTO products (name, price) VALUES ('" + productName + "','" + productPrice + "')");
+            conn.release();
             updateResponse = newItems.rows;
             if(newItems.rowCount == 0) {
                 return {
@@ -100,8 +103,9 @@ export class ProductsModels {
 
     async updateProductInfo(productId: string, productPrice: number): Promise<any> {
         try {
-            await client.connect();
-            const updatedData = await client.query("UPDATE products SET price = '" + productPrice + "' WHERE id = '" + productId + "'");
+            const conn = await client.connect();
+            const updatedData = await conn.query("UPDATE products SET price = '" + productPrice + "' WHERE id = '" + productId + "'");
+            conn.release();
             if(updatedData.rowCount == 0) {
                 return {
                     "status": "Failed",
@@ -119,8 +123,9 @@ export class ProductsModels {
 
     async deleteProduct(productId: string): Promise<any> {
         try {
-            await client.connect();
-            const deletedProduct = await client.query("DELETE FROM products WHERE id ='" + productId + "'");
+            const conn = await client.connect();
+            const deletedProduct = await conn.query("DELETE FROM products WHERE id ='" + productId + "'");
+            conn.release();
             if(deletedProduct.rowCount == 0) {
                 return {
                     "status": "Failure",

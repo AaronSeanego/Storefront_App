@@ -11,8 +11,9 @@ let products:any;
 export class DashBoardModels {
     async getJoined() : Promise<any> {
         try {
-            await client.connect();
-            const joinedTable = await client.query('SELECT name, price, orders_id FROM products INNER JOIN orders_products ON products.id = orders_products.id');
+            const conn = await client.connect();
+            const joinedTable = await conn.query('SELECT name, price, orders_id FROM products INNER JOIN orders_products ON products.id = orders_products.id');
+            conn.release();
             joinedData = joinedTable.rows;
             if(joinedTable.rowCount == 0) {
                 return {
@@ -32,8 +33,9 @@ export class DashBoardModels {
 
     async getProductByLike(nameString:string): Promise<any> {
         try {
-            await client.connect();
-            const productByPrice = await client.query("SELECT name,price FROM products WHERE name LIKE '%" + nameString + "%'");
+            const conn = await client.connect();
+            const productByPrice = await conn.query("SELECT name,price FROM products WHERE name LIKE '%" + nameString + "%'");
+            conn.release();
             products = productByPrice.rows;
             if(productByPrice.rowCount == 0) {
                 return {
@@ -53,8 +55,9 @@ export class DashBoardModels {
 
     async getProductByPriceRange(minPrice:string,maxPrice:string): Promise<any> {
         try {
-            await client.connect();
-            const productByPrice = await client.query("SELECT * FROM products WHERE price BETWEEN '" + minPrice + "' AND '" + maxPrice + "'");
+            const conn = await client.connect();
+            const productByPrice = await conn.query("SELECT * FROM products WHERE price BETWEEN '" + minPrice + "' AND '" + maxPrice + "'");
+            conn.release();
             products = productByPrice.rows;
             if(productByPrice.rowCount == 0) {
                 return {

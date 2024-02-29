@@ -25,8 +25,9 @@ export class UserModels {
 
     async getUsers(): Promise<any> {
         try {
-            await client.connect();
-            const userData = await client.query("SELECT * FROM users");
+            const conn = await client.connect();
+            const userData = await conn.query("SELECT * FROM users");
+            conn.release();
             userInfo = userData.rows;
             if(userData.rowCount == 0) {
                 return {
@@ -48,8 +49,9 @@ export class UserModels {
 
     async userLogin(username:string,password:string): Promise<any> {
         try {
-            await client.connect();
-            userInfo = await client.query("SELECT password FROM users WHERE username = '" + username + "'");
+            const conn = await client.connect();
+            userInfo = await conn.query("SELECT password FROM users WHERE username = '" + username + "'");
+            conn.release();
             // console.log(userInfo.rows);
             const user = userInfo.rows[0];
             
@@ -94,9 +96,10 @@ export class UserModels {
 
     async createUser(username: string, password: string, email: string,firstname: string,lastname: string): Promise<any> {
         try {
-            await client.connect();
+            const conn = await client.connect();
             let hashedPassword = await bcrypt.hash(password + "pepper", 10);
-            const newUsers = await client.query("INSERT INTO users (username, password, email, firstname, lastname) VALUES ('" + username + "','" + hashedPassword + "','" + email + "','" + firstname + "','" + lastname + "')");
+            const newUsers = await conn.query("INSERT INTO users (username, password, email, firstname, lastname) VALUES ('" + username + "','" + hashedPassword + "','" + email + "','" + firstname + "','" + lastname + "')");
+            conn.release();
             createdUserInforObj = newUsers;
             console.log(newUsers);
             if(newUsers.rowCount == 0) {
@@ -119,8 +122,9 @@ export class UserModels {
 
     async updateUserInfo(userName: string, userEmail: string): Promise<any> {
         try {
-            await client.connect();
-            const updatedData = await client.query("UPDATE users SET email = '" + userEmail + "' WHERE username = '" + userName + "'");
+            const conn = await client.connect();
+            const updatedData = await conn.query("UPDATE users SET email = '" + userEmail + "' WHERE username = '" + userName + "'");
+            conn.release();
             if(updatedData.rowCount == 0) {
                 return {
                     "status": "Failed",
@@ -140,8 +144,9 @@ export class UserModels {
 
     async deleteUser(username: string): Promise<any> {
         try {
-            await client.connect();
-            const deletedUser = await client.query("DELETE FROM users WHERE username ='" + username + "'");
+            const conn = await client.connect();
+            const deletedUser = await conn.query("DELETE FROM users WHERE username ='" + username + "'");
+            conn.release();
             deletedUserObj = deletedUser;
             console.log(deletedUserObj);
 
